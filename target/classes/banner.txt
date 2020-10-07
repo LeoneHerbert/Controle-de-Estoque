@@ -8,7 +8,7 @@
     888     888       Y88b  d88P    888     888                         888  T88b  888   Y8888 Y88b  d88P
     888     8888888888 "Y8888P"     888     8888888888                  888   T88b 888    Y888  "Y8888P"
 
-:: Build with Spring Boot ::                Refinaria Nacional de Sal               :: (v1.5.2.RELEASE) ::
+::                                     Refinaria Nacional de Sal                                           ::
 
 * * *  Rodando em Spring Boot ${spring-boot.version} em Java ${java.version}  * * *
 

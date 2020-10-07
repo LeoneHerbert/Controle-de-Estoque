@@ -6,8 +6,8 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-08-31T09:01:57-0300",
-    comments = "version: 1.3.0.Beta2, compiler: javac, environment: Java 1.8.0_231 (Oracle Corporation)"
+    date = "2020-10-07T20:51:21-0300",
+    comments = "version: 1.3.0.Beta2, compiler: javac, environment: Java 11.0.6 (JetBrains s.r.o)"
 )
 public class FilialMapperImpl implements FilialMapper {
 
