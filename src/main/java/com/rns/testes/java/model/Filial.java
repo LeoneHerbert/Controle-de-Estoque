@@ -5,6 +5,8 @@ import lombok.Data;
 import org.hibernate.validator.constraints.br.CNPJ;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "FILIAL")
@@ -28,5 +30,8 @@ public class Filial extends GenericEntity<Long> {
 
     @Column
     private EnumTipoFilial tipoFilial;
+
+    @OneToMany(mappedBy = "id.filial", cascade = CascadeType.ALL)
+    private Set<Estoque> estoque = new LinkedHashSet<>();
 
 }
