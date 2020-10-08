@@ -1,4 +1,4 @@
-package com.rns.testes.java.dao;
+package com.rns.testes.java.repository;
 
 import com.rns.testes.java.model.Filial;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Interface representa a camada de persistência da entidade Filial. Deve ser injetada <b>exclusivamente</b> em uma
  * camada service.
  */
-public interface IFilialDao extends JpaRepository<Filial, Long> {
+public interface IFilialRepository extends JpaRepository<Filial, Long> {
 
 }
