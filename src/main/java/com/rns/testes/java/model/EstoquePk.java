@@ -15,4 +15,8 @@ public class EstoquePk implements Serializable {
     @ManyToOne
     @JoinColumn(name = "produto_id")
     private Produto produto;
+
+    @ManyToOne
+    @JoinColumn(name = "filial_id")
+    private Filial filial;
 }
