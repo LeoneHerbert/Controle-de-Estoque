@@ -1,6 +1,6 @@
 package com.rns.testes.java.model;
 
-import com.rns.testes.java.enums.EnumTipoFilial;
+import com.rns.testes.java.model.enums.EnumTipoFilial;
 import lombok.Data;
 import org.hibernate.validator.constraints.br.CNPJ;
 

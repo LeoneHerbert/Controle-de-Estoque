@@ -2,7 +2,7 @@ package com.rns.testes.java.controller;
 
 import com.rns.testes.java.dto.FilialDto;
 import com.rns.testes.java.dto.mapper.FilialMapper;
-import com.rns.testes.java.enums.EnumTipoFilial;
+import com.rns.testes.java.model.enums.EnumTipoFilial;
 import com.rns.testes.java.model.Filial;
 import com.rns.testes.java.service.IFilialService;
 import org.springframework.beans.factory.annotation.Autowired;

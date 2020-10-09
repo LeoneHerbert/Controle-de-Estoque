@@ -1,4 +1,4 @@
-package com.rns.testes.java.enums;
+package com.rns.testes.java.model.enums;
 
 import lombok.Getter;
 

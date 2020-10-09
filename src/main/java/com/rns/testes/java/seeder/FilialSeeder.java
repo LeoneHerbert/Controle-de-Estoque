@@ -1,6 +1,6 @@
 package com.rns.testes.java.seeder;
 
-import com.rns.testes.java.enums.EnumTipoFilial;
+import com.rns.testes.java.model.enums.EnumTipoFilial;
 import com.rns.testes.java.model.Filial;
 import com.rns.testes.java.service.IFilialService;
 import lombok.extern.slf4j.Slf4j;
