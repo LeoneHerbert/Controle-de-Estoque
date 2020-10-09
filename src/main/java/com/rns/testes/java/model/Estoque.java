@@ -1,7 +1,6 @@
 package com.rns.testes.java.model;
 
 import lombok.Data;
-
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -18,6 +17,10 @@ public class Estoque {
     @Min(0)
     @Column(name = "quantidade_produtos")
     private Integer quantidadeDeProdutos;
+
+    public Produto getProduto() {
+        return this.id.getProduto();
+    }
 
     public void entradaNoEstoque(@Min(1) Integer quantidade) {
         this.setQuantidadeDeProdutos(this.getQuantidadeDeProdutos() + quantidade);
