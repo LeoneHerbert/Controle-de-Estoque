@@ -22,6 +22,18 @@ public class Estoque {
         return this.id.getProduto();
     }
 
+    public void setProduto(Produto produto) {
+        id.setProduto(produto);
+    }
+
+    public Filial getFilial() {
+        return id.getFilial();
+    }
+
+    public void setFilial(Filial filial) {
+        id.setFilial(filial);
+    }
+
     public void entradaNoEstoque(@Min(1) Integer quantidade) {
         this.setQuantidadeDeProdutos(this.getQuantidadeDeProdutos() + quantidade);
     }
