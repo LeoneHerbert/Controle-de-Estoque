@@ -17,21 +17,21 @@ public class Estoque {
     @NotNull
     @Min(0)
     @Column(name = "quantidade_produtos")
-    private Integer quantidadeProdutos;
+    private Integer quantidadeDeProdutos;
 
-    public void adicionaNoEstoque(@Min(1) Integer quantidade) {
-        this.setQuantidadeProdutos(this.getQuantidadeProdutos() + quantidade);
+    public void entradaNoEstoque(@Min(1) Integer quantidade) {
+        this.setQuantidadeDeProdutos(this.getQuantidadeDeProdutos() + quantidade);
     }
 
-    public void baixaNoEstoque(@Positive Integer quantidade)  {
-        final int novaQuantidade = this.getQuantidadeProdutos() - quantidade;
+    public void saidaNoEstoque(@Positive Integer quantidade)  {
+        final int novaQuantidade = this.getQuantidadeDeProdutos() - quantidade;
 
         if (novaQuantidade < 0) {
             throw new IllegalArgumentException
                     ("Não há disponibilidade no estoque de "
                             + quantidade + " itens do produto " + id.getProduto().getNome() + "."
-                            + "Temos disponível apenas " + this.quantidadeProdutos + "itens" );
+                            + "Temos disponível apenas " + this.quantidadeDeProdutos + "itens" );
         }
-        this.setQuantidadeProdutos(novaQuantidade );
+        this.setQuantidadeDeProdutos(novaQuantidade );
     }
 }
