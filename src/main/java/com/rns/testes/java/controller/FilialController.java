@@ -2,59 +2,62 @@ package com.rns.testes.java.controller;
 
 import com.rns.testes.java.controller.dto.FilialDto;
 import com.rns.testes.java.controller.dto.mapper.FilialMapper;
+import com.rns.testes.java.controller.event.HeaderLocationEvent;
 import com.rns.testes.java.model.enums.EnumTipoFilial;
 import com.rns.testes.java.model.Filial;
 import com.rns.testes.java.service.IFilialService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping
+@RequestMapping("/filiais")
 public class FilialController {
-
-    private static final String BASE_URL = "filial/";
+    @Autowired
+    private ApplicationEventPublisher publisher;
 
     @Autowired
-    IFilialService service;
+    IFilialService filialService;
 
-    @GetMapping(value = BASE_URL + "find-all", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
+    @GetMapping("/")
     public ResponseEntity<List<Filial>> findAll() {
-        return ResponseEntity.ok(service.findAll());
+        return ResponseEntity.ok(filialService.findAll()); }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Filial> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(filialService.findById(id));
     }
 
-    @GetMapping(value = BASE_URL + "find-by-id", produces = MediaType.APPLICATION_JSON_VALUE, params = {"id"})
-    @ResponseStatus(value = HttpStatus.OK)
-    public ResponseEntity<Filial> findById(@RequestParam(name = "id") Long id) {
-        return ResponseEntity.ok(service.findById(id));
-    }
-
-    @PutMapping(value = BASE_URL + "update", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
+    @PutMapping("/{id}")
     public ResponseEntity<Filial> update(@RequestBody FilialDto dto) {
-        return ResponseEntity.ok(service.update(FilialMapper.INSTANCE.dtoToEntity(dto)));
+        return ResponseEntity.ok(filialService.update(FilialMapper.INSTANCE.dtoToEntity(dto)));
     }
 
-    @PostMapping(value = BASE_URL + "insert", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
-    public ResponseEntity<Filial> insert(@RequestBody FilialDto dto) {
-        return ResponseEntity.ok(service.save(FilialMapper.INSTANCE.dtoToEntity(dto)));
+    @PostMapping("/")
+    public ResponseEntity<Filial> insert(@Validated @RequestBody FilialDto dto, HttpServletResponse response) {
+        Filial filial = filialService.save(FilialMapper.INSTANCE.dtoToEntity(dto));
+
+        publisher.publishEvent(new HeaderLocationEvent(this, response, filial.getId()) );
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(filial );
+
     }
 
-    @DeleteMapping(value = BASE_URL + "delete", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
-    public void delete(@RequestParam(name = "id") Long id) {
-        service.delete(id);
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        filialService.delete(id);
     }
 
-    @GetMapping(value = BASE_URL + "tipo/find-all", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
+    @GetMapping("/tipo/")
     public ResponseEntity<List<EnumTipoFilial>> findAllEnumTipoFilial() {
         return ResponseEntity.ok(EnumTipoFilial.getAll());
     }
