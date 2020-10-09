@@ -6,7 +6,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-10-07T20:51:21-0300",
+    date = "2020-10-08T23:15:50-0300",
     comments = "version: 1.3.0.Beta2, compiler: javac, environment: Java 11.0.6 (JetBrains s.r.o)"
 )
 public class FilialMapperImpl implements FilialMapper {
