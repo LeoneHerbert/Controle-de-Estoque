@@ -6,15 +6,15 @@ import javax.servlet.http.HttpServletResponse;
 public class HeaderLocationEvent extends ApplicationEvent {
 
     private final HttpServletResponse response;
-    private final Integer id;
+    private final Object id;
 
-    public HeaderLocationEvent(Object source, HttpServletResponse response, Integer id) {
+    public HeaderLocationEvent(Object source, HttpServletResponse response, Object id) {
         super(source);
         this.response = response;
         this.id = id;
     }
 
-    public Integer getId() {
+    public Object getId() {
         return id;
     }
 
