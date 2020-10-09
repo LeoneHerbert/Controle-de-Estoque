@@ -1,6 +1,6 @@
-package com.rns.testes.java.dto.mapper;
+package com.rns.testes.java.controller.dto.mapper;
 
-import com.rns.testes.java.dto.ProdutoDto;
+import com.rns.testes.java.controller.dto.ProdutoDto;
 import com.rns.testes.java.model.Produto;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

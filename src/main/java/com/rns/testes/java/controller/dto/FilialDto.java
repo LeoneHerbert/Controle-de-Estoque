@@ -1,4 +1,4 @@
-package com.rns.testes.java.dto;
+package com.rns.testes.java.controller.dto;
 
 import com.rns.testes.java.model.enums.EnumTipoFilial;
 import com.rns.testes.java.model.GenericEntity;

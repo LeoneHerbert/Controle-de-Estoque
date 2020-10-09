@@ -1,6 +1,6 @@
-package com.rns.testes.java.dto.mapper;
+package com.rns.testes.java.controller.dto.mapper;
 
-import com.rns.testes.java.dto.FilialDto;
+import com.rns.testes.java.controller.dto.FilialDto;
 import com.rns.testes.java.model.Filial;
 import javax.annotation.Generated;
 

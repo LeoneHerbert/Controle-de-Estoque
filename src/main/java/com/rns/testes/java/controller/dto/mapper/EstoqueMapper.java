@@ -1,6 +1,6 @@
-package com.rns.testes.java.dto.mapper;
+package com.rns.testes.java.controller.dto.mapper;
 
-import com.rns.testes.java.dto.EstoqueDto;
+import com.rns.testes.java.controller.dto.EstoqueDto;
 import com.rns.testes.java.model.Estoque;
 import org.mapstruct.factory.Mappers;
 

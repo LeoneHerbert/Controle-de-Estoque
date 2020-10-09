@@ -1,7 +1,7 @@
 package com.rns.testes.java.controller;
 
-import com.rns.testes.java.dto.ProdutoDto;
-import com.rns.testes.java.dto.mapper.ProdutoMapper;
+import com.rns.testes.java.controller.dto.ProdutoDto;
+import com.rns.testes.java.controller.dto.mapper.ProdutoMapper;
 import com.rns.testes.java.model.Produto;
 import com.rns.testes.java.service.IProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;

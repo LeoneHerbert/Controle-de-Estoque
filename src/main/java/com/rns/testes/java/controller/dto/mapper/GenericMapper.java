@@ -1,4 +1,4 @@
-package com.rns.testes.java.dto.mapper;
+package com.rns.testes.java.controller.dto.mapper;
 
 /**
  * A classe abstrata responsável por implementa os m?todos genéricos para o GenericMapper.
