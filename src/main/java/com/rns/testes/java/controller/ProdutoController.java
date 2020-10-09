@@ -1,54 +1,57 @@
 package com.rns.testes.java.controller;
 
 import com.rns.testes.java.controller.dto.ProdutoDto;
+import com.rns.testes.java.controller.dto.mapper.FilialMapper;
 import com.rns.testes.java.controller.dto.mapper.ProdutoMapper;
+import com.rns.testes.java.controller.event.HeaderLocationEvent;
 import com.rns.testes.java.model.Produto;
 import com.rns.testes.java.service.IProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping
+@RequestMapping("/produtos")
 public class ProdutoController {
-
-    private static final String BASE_URL = "produto/";
+    @Autowired
+    private ApplicationEventPublisher publisher;
 
     @Autowired
     IProdutoService service;
 
-    @GetMapping(value = BASE_URL + "find-all", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
+    @GetMapping("/")
     public ResponseEntity<List<Produto>> findAll() {
         return ResponseEntity.ok(service.findAll());
     }
 
-    @GetMapping(value = BASE_URL + "find-by-id", produces = MediaType.APPLICATION_JSON_VALUE, params = {"id"})
-    @ResponseStatus(value = HttpStatus.OK)
-    public ResponseEntity<Produto> findById(@RequestParam(name = "id") String id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Produto> findById(@PathVariable String id) {
         return ResponseEntity.ok(service.findById(id));
     }
 
-    @PutMapping(value = BASE_URL + "update", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
+    @PutMapping("/{id}")
     public ResponseEntity<Produto> update(@RequestBody ProdutoDto dto) {
         return ResponseEntity.ok(service.update(ProdutoMapper.INSTANCE.dtoToEntity(dto)));
     }
 
-    @PostMapping(value = BASE_URL + "insert", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
-    public ResponseEntity<Produto> insert(@RequestBody ProdutoDto dto) {
-        return ResponseEntity.ok(service.save(ProdutoMapper.INSTANCE.dtoToEntity(dto)));
+    @PostMapping("/")
+    public ResponseEntity<Produto> insert(@RequestBody ProdutoDto dto, HttpServletResponse response) {
+        Produto produto = service.save(ProdutoMapper.INSTANCE.dtoToEntity(dto));
+
+        publisher.publishEvent(new HeaderLocationEvent(this, response, produto.getId()) );
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(produto );
     }
 
-    @DeleteMapping(value = BASE_URL + "delete", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
-    public void delete(@RequestParam(name = "id") String id) {
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable String id) {
         service.delete(id);
     }
 
