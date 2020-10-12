@@ -1,7 +1,6 @@
 package com.rns.testes.java.model.enums;
 
 import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;

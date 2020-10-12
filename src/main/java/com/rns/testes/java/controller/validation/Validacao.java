@@ -1,7 +1,6 @@
 package com.rns.testes.java.controller.validation;
 
 import com.rns.testes.java.controller.response.Erro;
-
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;

@@ -1,7 +1,6 @@
 package com.rns.testes.java.model;
 
 import lombok.Data;
-
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 import javax.persistence.JoinColumn;

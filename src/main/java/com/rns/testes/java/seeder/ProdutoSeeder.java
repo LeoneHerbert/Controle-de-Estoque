@@ -16,16 +16,16 @@ public class ProdutoSeeder {
     IProdutoService service;
 
     @EventListener
-    public void seedFilial(ContextRefreshedEvent event) {
+    public void seedProduto(ContextRefreshedEvent event) {
         try {
             log.info("Criando produtos....");
-            criandoFiliais();
+            criandoProdutos();
         } catch (Exception e) {
             log.error(e.getMessage());
         }
     }
 
-    private void criandoFiliais() {
+    private void criandoProdutos() {
         for (int i = 1; i < 25; i++) {
             Produto produto = new Produto();
             produto.setId("Cod-Produto-"+i);

@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.domain.Persistable;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
