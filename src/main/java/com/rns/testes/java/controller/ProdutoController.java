@@ -1,7 +1,6 @@
 package com.rns.testes.java.controller;
 
 import com.rns.testes.java.controller.dto.ProdutoDto;
-import com.rns.testes.java.controller.dto.mapper.EstoqueMapper;
 import com.rns.testes.java.controller.dto.mapper.ProdutoMapper;
 import com.rns.testes.java.controller.event.HeaderLocationEvent;
 import com.rns.testes.java.controller.response.Resposta;
@@ -9,12 +8,9 @@ import com.rns.testes.java.model.Produto;
 import com.rns.testes.java.service.IProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -39,14 +35,14 @@ public class ProdutoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@RequestBody ProdutoDto dto) {
-        Produto produto = produtoService.update(ProdutoMapper.INSTANCE.dtoToEntity(dto));
+    public ResponseEntity update(@RequestBody ProdutoDto produtoDto) {
+        Produto produto = produtoService.update(ProdutoMapper.INSTANCE.dtoToEntity(produtoDto));
         return ResponseEntity.ok(Resposta.comDadosDe(ProdutoMapper.INSTANCE.entityToDto(produto)));
     }
 
     @PostMapping
-    public ResponseEntity insert(@RequestBody ProdutoDto dto, HttpServletResponse response) {
-        Produto produto = produtoService.save(ProdutoMapper.INSTANCE.dtoToEntity(dto));
+    public ResponseEntity insert(@RequestBody ProdutoDto produtoDto, HttpServletResponse response) {
+        Produto produto = produtoService.save(ProdutoMapper.INSTANCE.dtoToEntity(produtoDto));
 
         publisher.publishEvent(new HeaderLocationEvent(this, response, produto.getId()) );
 

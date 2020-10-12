@@ -33,37 +33,37 @@ public class EstoqueController {
     }
 
     @PutMapping
-    public ResponseEntity update(@Valid @RequestBody EstoqueDto dto,
+    public ResponseEntity update(@Valid @RequestBody EstoqueDto estoqueDto,
                                  @RequestParam EnumTipoSolicitacaoEstoque solicitacao,
                                  @RequestParam Integer quantidade) {
-        List<Erro> erros = this.getErros(dto);
+        List<Erro> erros = this.getErros(estoqueDto);
 
         if (existe(erros)) {
             return ResponseEntity.badRequest().body(Resposta.com(erros));
         }
 
-        Estoque estoque = estoqueService.updateEstoque(quantidade, dto, solicitacao);
+        Estoque estoque = estoqueService.updateEstoque(quantidade, estoqueDto, solicitacao);
 
         return ResponseEntity.ok(Resposta.comDadosDe(EstoqueMapper.INSTANCE.entityToDto(estoque)));
     }
 
     @PostMapping("/transfere_produto_para_filial/{idFilial}")
-    public ResponseEntity updateProdutoFilial(@PathVariable Long idFilial, @Valid @RequestBody EstoqueDto dto) {
-        List<Erro> erros = this.getErros(dto);
+    public ResponseEntity updateProdutoFilial(@PathVariable Long idFilial, @Valid @RequestBody EstoqueDto estoqueDto) {
+        List<Erro> erros = this.getErros(estoqueDto);
 
         if (existe(erros)) {
             return ResponseEntity.badRequest().body(Resposta.com(erros));
         }
-        Estoque estoque = estoqueService.updateProdutoFilial(idFilial, dto);
+        Estoque estoque = estoqueService.updateProdutoFilial(idFilial, estoqueDto);
 
         return ResponseEntity.ok(Resposta.comDadosDe(EstoqueMapper.INSTANCE.entityToDto(estoque)));
     }
 
     @PostMapping
-    public ResponseEntity insert(@Valid @RequestBody EstoqueDto dto,
+    public ResponseEntity insert(@Valid @RequestBody EstoqueDto estoqueDto,
                                  HttpServletResponse response) {
 
-        Estoque estoque = estoqueService.saveEstoque(dto);
+        Estoque estoque = estoqueService.saveEstoque(estoqueDto);
 
         publisher.publishEvent(new HeaderLocationEvent(this, response, estoque.getId()));
 
@@ -71,16 +71,16 @@ public class EstoqueController {
     }
 
     @DeleteMapping
-    public void delete(@Valid @RequestBody EstoqueDto dto) {
-        estoqueService.deleteEstoque(dto);
+    public void delete(@Valid @RequestBody EstoqueDto estoqueDto) {
+        estoqueService.deleteEstoque(estoqueDto);
     }
 
     private boolean existe(List<Erro> erros) {
         return Objects.nonNull(erros) && !erros.isEmpty();
     }
 
-    private List<Erro> getErros(EstoqueDto dto) {
+    private List<Erro> getErros(EstoqueDto estoqueDto) {
         Validacao<EstoqueDto> validacao = new Validacao<>();
-        return validacao.valida(dto);
+        return validacao.valida(estoqueDto);
     }
 }

@@ -41,20 +41,20 @@ public class FilialController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@RequestBody FilialDto dto) {
-        List<Erro> erros = this.getErros(dto);
+    public ResponseEntity update(@RequestBody FilialDto filialDto) {
+        List<Erro> erros = this.getErros(filialDto);
         if (existe(erros)) {
             return ResponseEntity.badRequest().body(Resposta.com(erros));
         }
 
-        Filial filial = filialService.update(FilialMapper.INSTANCE.dtoToEntity(dto));
+        Filial filial = filialService.update(FilialMapper.INSTANCE.dtoToEntity(filialDto));
 
         return ResponseEntity.ok(Resposta.comDadosDe(FilialMapper.INSTANCE.entityToDto(filial)));
     }
 
     @PostMapping
-    public ResponseEntity insert(@Validated @RequestBody FilialDto dto, HttpServletResponse response) {
-        Filial filial = filialService.save(FilialMapper.INSTANCE.dtoToEntity(dto));
+    public ResponseEntity insert(@Validated @RequestBody FilialDto filialDto, HttpServletResponse response) {
+        Filial filial = filialService.save(FilialMapper.INSTANCE.dtoToEntity(filialDto));
 
         publisher.publishEvent(new HeaderLocationEvent(this, response, filial.getId()));
 
