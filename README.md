@@ -1,30 +1,36 @@
-# RNS - JAVA
-O JAVATeste é uma API desenvolvida na linguagem java e que utiliza o framework Spring Boot 2.3.3.RELEASE e Lombok com o objetivo de avaliar
-os seus conhecimentos em Java 1.8. 
-Essa API será hipoteticamente utilizada para controlar os estoques entre lojas e os nossos centros de estocagem. Gerênciando 
-os processos de transferência entre as unidades.  
+<h1 align="center">
+  📦 Controle de Estoque API REST
+</h1>
 
-# Pré-requisitos
-Este é um projeto Maven que utiliza o SpringBoot como framework. Logo para conseguir compila-lo é necessário ter o Maven instalado na sua máquina ou utilizar algum plugin Maven na sua IDE de preferência.
-Para saber mais sobre como instala o Maven na sua máquina acesse http://maven.apache.org .
+<p align="left">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-executar">Como excutar</a>&nbsp;&nbsp;&nbsp;
+</p>
 
-Ainda, este projeto utiliza Lombok, uma biblioteca Java que elimina a necessidade de criação de getters e setter. Para que a biblioteca funcione em tempo de compilação é necessário instalação de plugin na sua IDE.
-Acesse https://projectlombok.org para mais informações.
+## 💻 Tecnologias
 
-## O que precisa ser desenvolvido:
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+* [Java](https://www.java.com/pt_BR/download/)
+* [Spring Boot](https://spring.io/projects/spring-boot)
+* [Flyway](https://flywaydb.org/)
+* [H2](https://www.mysql.com/)
 
-### Feature Controle de Estoque
+## Como executar
+Execute o comando abaixo no diretório que você deseja clonar o projeto:
 
-Você deverá criar uma feature de controle de estoque. 
-- A entidade que será responsável pelo controle de estoque deve relacionar produtos com filial e indicar a quantidade de itens disponível para esse produto.
-- Lembre-se que de construir toda a estrutura necessária para que essa feature possa ser consumida por via rest.
-- Deve existir um endpoint que permita a transferência de um produto de uma filial para outra.
-- Todos os endpoints dessa API devem estar funcionando adequadamente.
-- Você tem total liberdade para fazer qualquer alteração no projeto que achar pertinente, desde que ele continue atendendo aos objetivos principais da API.
+```sh
+git clone https://github.com/LeoneHerbert/Teste-Java---RNS.git
+```
 
+Após clonar o projeto, execute o comando abaixo no terminal do diretório do projeto:
 
+```sh
+docker-compose up
+```
 
+Pronto! O sistema já está sendo executado, basta consumir a API. Utilize o Swagger para uma melhor experiência. [Clique aqui.](http://localhost:8080/swagger-ui.html)
 
+<hr>
 
-
-
+by Herbert Leone Pinheiro ✌🏽
