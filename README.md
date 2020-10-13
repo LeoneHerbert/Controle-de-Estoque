@@ -14,7 +14,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 * [Java](https://www.java.com/pt_BR/download/)
 * [Spring Boot](https://spring.io/projects/spring-boot)
 * [Flyway](https://flywaydb.org/)
-* [H2](https://www.mysql.com/)
+* [H2](http://h2database.com/)
 
 ## Como executar
 Execute o comando abaixo no diretório que você deseja clonar o projeto:
