@@ -11,7 +11,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 * [H2](http://h2database.com/)
 
 ## Como executar
-Execute o comando abaixo no diretório que você deseja clonar o projeto:
+Execute o comando abaixo no terminal do diretório que você deseja clonar o projeto:
 
 ```sh
 git clone https://github.com/LeoneHerbert/Teste-Java---RNS.git
