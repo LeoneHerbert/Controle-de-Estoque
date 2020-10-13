@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class ProdutoSeeder {
-
+ /*
     @Autowired
     IProdutoService service;
 
@@ -33,4 +33,6 @@ public class ProdutoSeeder {
             service.save(produto);
         }
     }
+
+  */
 }

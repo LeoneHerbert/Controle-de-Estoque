@@ -10,7 +10,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-10-12T18:44:01-0300",
+    date = "2020-10-12T21:48:33-0300",
     comments = "version: 1.3.0.Beta2, compiler: javac, environment: Java 11.0.6 (JetBrains s.r.o)"
 )
 public class EstoqueMapperImpl implements EstoqueMapper {

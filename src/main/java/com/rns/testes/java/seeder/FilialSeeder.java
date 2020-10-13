@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class FilialSeeder {
-
+ /*
     @Autowired
     IFilialService service;
 
@@ -60,4 +60,6 @@ public class FilialSeeder {
 
         service.save(lojaBtoB);
     }
+
+  */
 }

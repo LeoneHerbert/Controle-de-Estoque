@@ -1,0 +1,9 @@
+# spring-boot-docker/docker-compose.yml
+version: "3.7"
+services:
+  web-service:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"

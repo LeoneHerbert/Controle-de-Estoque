@@ -26,6 +26,7 @@ public class Filial extends GenericEntity<Long> {
     @Column
     private String endereco;
 
+    @Enumerated(EnumType.STRING)
     @Column
     private EnumTipoFilial tipoFilial;
 

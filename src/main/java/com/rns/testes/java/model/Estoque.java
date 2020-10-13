@@ -13,9 +13,7 @@ public class Estoque extends GenericEntity<EstoquePk> {
     @EmbeddedId
     private EstoquePk id = new EstoquePk();
 
-    @NotNull
-    @Min(0)
-    @Column(name = "quantidade_produto")
+    @Column(name = "quantidade_produtos")
     private Integer quantidadeDoProduto;
 
     public Produto getProduto() {
