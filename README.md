@@ -2,12 +2,6 @@
   📦 Controle de Estoque API REST
 </h1>
 
-<p align="left">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-como-executar">Como excutar</a>&nbsp;&nbsp;&nbsp;
-</p>
-
 ## 💻 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
