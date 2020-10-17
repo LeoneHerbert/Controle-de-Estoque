@@ -14,7 +14,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Execute o comando abaixo no terminal do diretório que você deseja clonar o projeto:
 
 ```sh
-git clone https://github.com/LeoneHerbert/Teste-Java---RNS.git
+git clone https://github.com/LeoneHerbert/Controle-de-Estoque.git
 ```
 
 Após clonar o projeto, execute o comando abaixo no terminal do diretório do projeto:
